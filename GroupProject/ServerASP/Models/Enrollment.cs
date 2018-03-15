@@ -7,6 +7,10 @@ using System.Web;
 
 namespace ServerASP.Models
 {
+    public enum Grade
+    {
+        A, B, C, D, F
+    }
     public class Enrollment
     {
         [Key]
@@ -20,5 +24,7 @@ namespace ServerASP.Models
         public DateTime? EnrollmentDate { get; set; }
         public virtual Student StudentEnrolled { get; set; }
         public virtual Module EnrolledOn { get; set; }
+        [DisplayFormat(NullDisplayText = "No grade")]
+        public Grade? Grade { get; set; }
     }
 }
